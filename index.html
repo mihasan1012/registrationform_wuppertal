@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Minhaj-ul-Quran Wuppertal</title>
+    <style>
+        :root {
+            --primary-blue: #0d3b66;
+            --bg-light: #f8f9fa;
+            --border-color: #ccc;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            background: #fff;
+            max-width: 750px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 10px 0;
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        .header-logo {
+            max-width: 100px;
+            height: auto;
+        }
+        .header-text h1 {
+            color: var(--primary-blue);
+            margin: 0;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header-text h2 {
+            margin: 5px 0 0 0;
+            font-size: 15px;
+            color: #555;
+            letter-spacing: 2px;
+        }
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 8px;
+        }
+        .lang-switcher label {
+            margin: 0;
+            font-size: 13px;
+        }
+        .lang-select {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-size: 13px;
+            cursor: pointer;
+            width: auto;
+        }
+        section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="date"], select, textarea {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+        }
+        .radio-checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 8px;
+        }
+        .radio-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: normal;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .footer-info-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .privacy-box {
+            background-color: #fffde7;
+            border: 1px solid #fff59d;
+            padding: 15px;
+            font-size: 12px;
+            color: #444;
+            line-height: 1.5;
+            border-radius: 4px;
+        }
+        .bank-box {
+            border: 2px solid var(--primary-blue);
+            padding: 15px;
+            background-color: #fdfdfd;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .bank-box h3 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            color: #000;
+        }
+        .bank-box p {
+            margin: 3px 0;
+            font-size: 13px;
+            color: #222;
+        }
+        .bank-box .iban {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+        .submit-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background-color: #061f38;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 5px; }
+            .form-container { padding: 15px; border: none; box-shadow: none; }
+            .header { gap: 10px; }
+            .header-text h1 { font-size: 18px; }
+            .header-text h2 { font-size: 13px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .footer-info-grid { grid-template-columns: 1fr; }
+            .radio-checkbox-group { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="header">
+        <img src="logo.png" alt="Minhaj-ul-Quran Logo" class="header-logo">
+        <div class="header-text">
+            <h1>Minhaj-ul-Quran Wuppertal</h1>
+            <h2 data-en="REGISTRATION FORM" data-de="REGISTRIERUNGSFORMULAR">REGISTRATION FORM</h2>
+        </div>
+    </div>
+
+    <div class="lang-switcher">
+        <label for="langSelect">Language / Sprache:</label>
+        <select id="langSelect" class="lang-select" onchange="toggleLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+
+    <form id="registrationForm">
+        <section>
+            <div class="section-title" data-en="Personal Information" data-de="Persönliche Informationen">Personal Information</div>
+            
+            <div class="form-group">
+                <label data-en="Full Name *" data-de="Vollständiger Name *">Full Name *</label>
+                <input type="text" name="fullName" required data-en-placeholder="First and Last Name (Block letters)" data-de-placeholder="Vor- und Nachname (Blockbuchstaben)" placeholder="First and Last Name (Block letters)">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Date of Birth *" data-de="Geburtsdatum *">Date of Birth *</label>
+                    <input type="date" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label data-en="Gender *" data-de="Geschlecht *">Gender *</label>
+                    <div class="radio-checkbox-group">
+                        <label class="radio-checkbox-label">
+                            <input type="radio" name="gender" value="Male" required> 
+                            <span data-en="Male" data-de="Männlich">Male</span>
+                        </label>
+                        <label class="radio-checkbox-label">
+                            <input type="radio" name="gender" value="Female"> 
+                            <span data-en="Female" data-de="Weiblich">Female</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-en="Address *" data-de="Adresse *">Address *</label>
+                <input type="text" name="address" required>
+            </div>
+
+            <div class="form-group">
+                <label data-en="Profession / Occupation" data-de="Beruf / Tätigkeit">Profession / Occupation</label>
+                <input type="text" name="profession">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Family Status" data-de="Familienstatus">Family Status</label>
+                    <input type="text" name="familyStatus">
+                </div>
+                <div class="form-group">
+                    <label data-en="Children" data-de="Kinder">Children</label>
+                    <input type="text" name="children">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title" data-en="Contact Details" data-de="Kontaktdaten">Contact Details</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Phone / WhatsApp *" data-de="Telefon / WhatsApp *">Phone / WhatsApp *</label>
+                    <input type="text" name="phone" required placeholder="+49...">
+                </div>
+                <div class="form-group">
+                    <label data-en="Email Address *" data-de="E-Mail-Adresse *">Email Address *</label>
+                    <input type="email" name="email" required>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title" data-en="Membership" data-de="Mitgliedschaft">Membership</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Date of Joining" data-de="Eintrittsdatum">Date of Joining</label>
+                    <input type="date" name="joiningDate">
+                </div>
+                <div class="form-group">
+                    <label data-en="Who referred you?" data-de="Empfohlen durch?">Who referred you?</label>
+                    <select name="referredBy">
+                        <option value="" data-en="-- Select --" data-de="-- Auswählen --">-- Select --</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Friends/Family" data-en="Friends / Family" data-de="Freunde / Familie">Friends / Family</option>
+                        <option value="Website">Website</option>
+                        <option value="Other" data-en="Other" data-de="Sonstiges">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-en="How would you like to contribute?" data-de="Wie möchten Sie sich einbringen?">How would you like to contribute?</label>
+                <textarea name="contribution" rows="3" data-en-placeholder="e.g., Volunteering, Teaching, Events" data-de-placeholder="z.B. Ehrenamt, Unterricht, Veranstaltungen" placeholder="e.g., Volunteering, Teaching, Events"></textarea>
+            </div>
+        </section>
+
+        <div class="footer-info-grid">
+            <div class="privacy-box">
+                <p><strong><span data-en="Data Privacy Notice" data-de="Datenschutzhinweis">Data Privacy Notice</span></strong></p>
+                <p id="privacyText" 
+                   data-en="I agree that the data provided above may be stored and processed by Minhaj-ul-Quran Wuppertal for the purposes of membership administration and communication. Your data will not be shared with third parties. This consent can be revoked at any time with future effect."
+                   data-de="Ich willige ein, dass die oben genannten Daten von Minhaj-ul-Quran Wuppertal zum Zweck der Mitgliederverwaltung und Information gespeichert und verarbeitet werden. Eine Weitergabe an Dritte erfolgt nicht. Diese Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden.">
+                   I agree that the data provided above may be stored and processed by Minhaj-ul-Quran Wuppertal for the purposes of membership administration and communication. Your data will not be shared with third parties. This consent can be revoked at any time with future effect.
+                </p>
+                
+                <label class="radio-checkbox-label" style="margin-top: 15px; font-weight: bold;">
+                    <input type="checkbox" name="privacyAgreement" required> 
+                    <span data-en="I agree *" data-de="Ich stimme zu *">I agree *</span>
+                </label>
+            </div>
+
+            <div class="bank-box">
+                <h3 data-en="Bank ID" data-de="Bankverbindung">Bank ID</h3>
+                <p><strong>Konto:</strong> Minhaj ul quran Wuppertal</p>
+                <p class="iban">DE08 3304 0001 0231 4110 00</p>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn" data-en="Submit Registration" data-de="Registrierung Absenden">Submit Registration</button>
+    </form>
+</div>
+
+<script>
+    // Your exact script endpoint URL verified from image_962c06.png
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxOtyL9gNKhqSiC-H-7zqAeTDu5SjJPgRVScSdTmVJ-FaJL-qODJn497Jwr4TvgMr4D/exec';
+    const SPREADSHEET_ID = '1NHeW7MAQ-SxTxal_v8Qh8_qHASzonaT_mKeavEgBb_4';
+
+    function toggleLanguage(lang) {
+        document.querySelectorAll('[data-en]').forEach(element => {
+            if (element.tagName !== 'OPTION') {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            } else {
+                element.text = element.getAttribute(`data-${lang}`);
+            }
+        });
+
+        document.querySelectorAll('[data-en-placeholder]').forEach(input => {
+            const translation = input.getAttribute(`data-${lang}-placeholder`);
+            input.setAttribute('placeholder', translation);
+        });
+
+        const currentBtn = document.getElementById('submitBtn');
+        if(!currentBtn.disabled) {
+            currentBtn.innerText = currentBtn.getAttribute(`data-${lang}`);
+        }
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const currentLang = document.getElementById('langSelect').value;
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerText = currentLang === 'en' ? 'Sending...' : 'Sendet...';
+
+        const formData = new FormData(this);
+        
+        const searchParams = new URLSearchParams();
+        for (const pair of formData) {
+            searchParams.append(pair[0], pair[1]);
+        }
+        searchParams.append('sheetId', SPREADSHEET_ID);
+
+        fetch(WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors', 
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: searchParams.toString()
+        })
+        .then(() => {
+            const successMsg = currentLang === 'en' ? 
+                'Registration submitted successfully!' : 
+                'Registrierung erfolgreich abgesendet!';
+            alert(successMsg);
+            this.reset();
+            submitBtn.disabled = false;
+            toggleLanguage(currentLang);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please check network connection.');
+            submitBtn.disabled = false;
+            toggleLanguage(currentLang);
+        });
+    });
+</script>
+
+</body>
+</html>
